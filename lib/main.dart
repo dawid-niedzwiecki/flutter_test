@@ -42,16 +42,16 @@ class _RandomWordsState extends State<RandomWords> {
 
   Widget _buildRow(WordPair pair) {
     final alreadySaved = _saved.contains(pair);
-    bool longered = false;
+    bool longere = false;
     return ListTile(
       title: Text(
         pair.asPascalCase,
         style: _biggerFont,
       ),
-      tileColor: longered ? Color(0xff2e2222) : null,
+      tileColor: longere ? Color(0xff222222) : null,
       trailing: Icon(
         alreadySaved ? Icons.favorite : Icons.favorite_border,
-        color: alreadySaved ? Colors.blue : null,
+        color: alreadySaved ? Colors.pink : null,
       ),
       onTap: () {
         setState(() {
@@ -64,7 +64,7 @@ class _RandomWordsState extends State<RandomWords> {
       },
       onLongPress: () {
         setState(() {
-          longered = !longered;
+          longere = !longere;
         });
       },
     );
