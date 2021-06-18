@@ -51,7 +51,7 @@ class _RandomWordsState extends State<RandomWords> {
       tileColor: longered ? Color(0xff2e2222) : null,
       trailing: Icon(
         alreadySaved ? Icons.favorite : Icons.favorite_border,
-        color: alreadySaved ? Colors.red : null,
+        color: alreadySaved ? Colors.blue : null,
       ),
       onTap: () {
         setState(() {
