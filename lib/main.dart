@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'utils.dart';
 
 void main() => runApp(MyApp());
 
@@ -51,7 +52,7 @@ class _RandomWordsState extends State<RandomWords> {
       tileColor: longere ? Color(0xff222222) : null,
       trailing: Icon(
         alreadySaved ? Icons.favorite : Icons.favorite_border,
-        color: alreadySaved ? Colors.pink : null,
+        color: alreadySaved ? Utils.primaryColor : null,
       ),
       onTap: () {
         setState(() {
