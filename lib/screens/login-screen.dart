@@ -41,8 +41,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Column(
                 children: [
-                  LoginButton(
-                      "Google", () => {Navigator.pushNamed(context, "/test")}),
+                  LoginButton("Google", () => {}),
                   LoginButton("Facebook", () => {print("dupa")}),
                   SizedBox(
                     height: 30.0,
