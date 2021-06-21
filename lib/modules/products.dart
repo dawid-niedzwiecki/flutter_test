@@ -24,7 +24,7 @@ class Product {
         " godzin";
     return Utils.generateText(message,
         color: (days >= 2 ? Utils.textColor : Utils.secondaryColor),
-        fontSize: (days >= 2 ? 15 : 15.3),
+        fontSize: (days >= 2 ? 15 : 15.7),
         fontWeight: (days >= 2 ? FontWeight.w300 : FontWeight.w500));
   }
 
