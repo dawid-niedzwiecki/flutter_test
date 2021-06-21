@@ -30,12 +30,13 @@ class Product {
 
   ListTile generateListTile() {
     return new ListTile(
-      title: Utils.generateText(name,
-          color: (_expirationDate.difference(DateTime.now()).inHours >= 0
-              ? Utils.textColor
-              : Utils.secondaryColor),
-          fontWeight: FontWeight.w500,
-          fontSize: 20),
+      title: (_expirationDate.difference(DateTime.now()).inHours >= 0
+          ? Utils.generateText(name,
+              color: Utils.textColor, fontWeight: FontWeight.w500, fontSize: 20)
+          : Utils.generateText(name,
+              color: Utils.secondaryColor,
+              fontWeight: FontWeight.w500,
+              fontSize: 22)),
       subtitle: generateExpirationTimeText(),
       leading: new Icon(Icons.image),
       trailing: new Icon(Icons.more_vert),
@@ -48,7 +49,7 @@ class TymczasowaListaProduktow {
     new Product('Jogurt', 3, 'opak.', new DateTime(2021, 6, 25)),
     new Product('Kefir', 3, 'but.', new DateTime(2021, 6, 23)),
     new Product('Ser żółty Gouda', 3, 'opak.', new DateTime(2021, 6, 20)),
-    new Product('Jogurt', 1, 'but.', new DateTime(2021, 6, 25)),
+    new Product('Kefir', 1, 'but.', new DateTime(2021, 6, 25)),
   ];
   static List<ListTile> generateList() {
     List<ListTile> list = [];
