@@ -2,16 +2,22 @@ import 'package:flutter/material.dart';
 import '../modules/utils.dart';
 import '../widgets/buttons.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class LoginPage2 extends StatefulWidget {
+  const LoginPage2({Key? key}) : super(key: key);
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _LoginPage2State createState() => _LoginPage2State();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPage2State extends State<LoginPage2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Test"),
+        leading: GestureDetector(
+            onLongPress: () => Navigator.pop(context),
+            child: Icon(Icons.arrow_back)),
+      ),
       body: Stack(
         children: [
           Image(
@@ -41,9 +47,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Column(
                 children: [
-                  LoginButton(
-                      "Google", () => {Navigator.pushNamed(context, "/test")}),
-                  LoginButton("Facebook", () => {print("dupa")}),
                   SizedBox(
                     height: 30.0,
                   ),
