@@ -20,7 +20,8 @@ class Product {
         (hours >= 0 ? hours % 24 : 0 - (hours % 24)).toString() +
         " godzin";
     return Utils.generateText(message,
-        color: (days >= 2 ? Utils.textColor : Utils.secondaryColor));
+        color: (days >= 2 ? Utils.textColor : Utils.secondaryColor),
+        fontWeight: (days >= 2 ? FontWeight.w400 : FontWeight.w500));
   }
 
   ListTile generateListTile() {
