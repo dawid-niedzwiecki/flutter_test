@@ -20,7 +20,7 @@ class Product {
         (hours >= 0 ? "" : "przeterminowany o ") +
         (days >= 0 ? days : -days).toString() +
         " dni " +
-        (hours >= 0 ? hours % 24 : 0 - (hours % 24)).toString() +
+        (hours >= 0 ? hours % 24 : (25 - hours) % 24).toString() +
         " godzin";
     return Utils.generateText(message,
         color: (days >= 2 ? Utils.textColor : Utils.secondaryColor),
