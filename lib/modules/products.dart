@@ -39,7 +39,13 @@ class Product {
               fontSize: 22)),
       subtitle: generateExpirationTimeText(),
       leading: new Icon(Icons.image),
-      trailing: new Icon(Icons.more_vert),
+      trailing: new IconButton(
+        splashRadius: 27,
+        onPressed: () => {},
+        icon: new Icon(Icons.more_vert),
+        iconSize: 32,
+      ),
+      onTap: () => {},
     );
   }
 }
