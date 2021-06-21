@@ -24,17 +24,28 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Center(
-                child: Text(
-                  "ExpirApp",
-                  style: TextStyle(color: Utils.primaryColor, fontSize: 80.0),
-                  textAlign: TextAlign.center,
-                ),
+              Column(
+                children: [
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Center(
+                    child: Text(
+                      "ExpirApp",
+                      style:
+                          TextStyle(color: Utils.primaryColor, fontSize: 80.0),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
               ),
               Column(
                 children: [
                   LoginButton("Google", () => {print("dupa")}),
-                  LoginButton("Google", () => {print("dupa")}),
+                  LoginButton("Facebook", () => {print("dupa")}),
+                  SizedBox(
+                    height: 30.0,
+                  ),
                 ],
               ),
             ],
