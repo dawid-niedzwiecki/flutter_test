@@ -18,6 +18,10 @@ class _LoginButtonState extends State<LoginButton> {
       padding: EdgeInsets.all(10),
       child: new ElevatedButton(
         style: new ButtonStyle(
+          fixedSize: MaterialStateProperty.resolveWith<Size>(
+              (Set<MaterialState> states) {
+            return new Size(250, 50);
+          }),
           backgroundColor: MaterialStateProperty.resolveWith<Color>(
               (Set<MaterialState> states) {
             return Utils.secondaryColor;
