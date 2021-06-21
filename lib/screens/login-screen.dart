@@ -40,13 +40,13 @@ class _LoginPageState extends State<LoginPage> {
               Column(
                 children: [
                   SizedBox(
-                    height: 50.0,
+                    height: 65.0,
                   ),
                   Center(
                     child: Utils.generateText("ExpirApp",
                         fontSize: 70.0,
                         color: Utils.primaryColor,
-                        fontWeight: FontWeight.w300),
+                        fontWeight: FontWeight.w500),
                   ),
                 ],
               ),
