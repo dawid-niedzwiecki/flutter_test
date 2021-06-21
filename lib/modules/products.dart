@@ -7,10 +7,31 @@ class Product {
   String unit = '';
   DateTime expirationDate = new DateTime(2000, 1, 1);
   Product(this.name, this.amount, this.unit, this.expirationDate);
+  Text generateExpirationTimeText() {
+    int hours = expirationDate.difference(DateTime.now()).inHours;
+    int days = expirationDate.difference(DateTime.now()).inDays;
+    String message = amount.toString() +
+        " " +
+        unit +
+        " | " +
+        (hours >= 0 ? "" : "przeterminowany o ") +
+        (days >= 0 ? days : -days).toString() +
+        " dni " +
+        (hours >= 0 ? hours % 24 : 0 - (hours % 24)).toString() +
+        " godzin";
+    return Utils.generateText(message,
+        color: (days >= 2 ? Utils.textColor : Utils.secondaryColor));
+  }
+
   ListTile generateListTile() {
     return new ListTile(
-      title: Utils.generateText(this.name),
-      subtitle: Utils.generateText(amount.toString() + " " + unit + " | "),
+      title: Utils.generateText(name,
+          color: (expirationDate.difference(DateTime.now()).inHours >= 0
+              ? Utils.textColor
+              : Utils.secondaryColor),
+          fontWeight: FontWeight.w500,
+          fontSize: 20),
+      subtitle: generateExpirationTimeText(),
       leading: new Icon(Icons.image),
       trailing: new Icon(Icons.more_vert),
     );
@@ -20,7 +41,7 @@ class Product {
 class TymczasowaListaProduktow {
   static List<Product> products = [
     new Product('Jogurt', 3, 'opak.', new DateTime(2021, 6, 25)),
-    new Product('Kefir', 3, 'but.', new DateTime(2021, 6, 22)),
+    new Product('Kefir', 3, 'but.', new DateTime(2021, 6, 23)),
     new Product('Ser żółty Gouda', 3, 'opak.', new DateTime(2021, 6, 20)),
     new Product('Jogurt', 1, 'but.', new DateTime(2021, 6, 25)),
   ];
