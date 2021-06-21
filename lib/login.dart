@@ -31,13 +31,6 @@ class _LoginPageState extends State<LoginPage> {
                       child: new Text("Zaloguj przy pomocy Google"),
                     ),
                   ),
-                  new Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: new ElevatedButton(
-                      onPressed: () => {},
-                      child: new Text("Zaloguj przy pomocy Facebooka"),
-                    ),
-                  ),
                 ],
               ),
               alignment: Alignment.bottomCenter,
