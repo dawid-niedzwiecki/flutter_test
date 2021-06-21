@@ -2,13 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'screens/login-screen.dart';
 import 'modules/utils.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
   runApp(
     MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => HomeRoute(),
+        '/': (context) => LoginPage(),
         '/przyklad': (context) => Przyklad(),
       },
     ),
@@ -33,12 +35,6 @@ class Przyklad extends StatelessWidget {
 class HomeRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'ExpirApp',
-      home: new LoginPage(),
-      theme: new ThemeData(
-        primaryColor: Utils.primaryColor,
-      ),
-    );
+    return new MaterialApp();
   }
 }
