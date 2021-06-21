@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:test1/screens/storage-screen.dart';
 import 'package:test1/screens/test-screen.dart';
 import 'screens/login-screen.dart';
 import 'modules/utils.dart';
@@ -12,6 +13,7 @@ void main() {
       initialRoute: '/',
       routes: {
         '/': (context) => LoginPage(),
+        '/storage': (context) => StoragePage(),
         '/test': (context) => LoginPage2(),
         '/przyklad': (context) => Przyklad(),
       },
