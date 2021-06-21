@@ -15,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Stack(
         children: [
           Image(
-            image: AssetImage("burger.png"),
+            image: AssetImage("assets/burger.png"),
             fit: BoxFit.cover,
             height: double.infinity,
             width: double.infinity,
