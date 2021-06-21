@@ -20,7 +20,7 @@ class _LoginButtonState extends State<LoginButton> {
         style: new ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith<Color>(
               (Set<MaterialState> states) {
-            return Utils.backgroundColor;
+            return Utils.secondaryColor;
           }),
           foregroundColor: MaterialStateProperty.resolveWith<Color>(
               (Set<MaterialState> states) {
