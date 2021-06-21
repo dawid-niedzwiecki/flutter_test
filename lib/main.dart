@@ -18,6 +18,9 @@ void main() {
 class Przyklad extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Umieśćić w opPressed (np. onPressed: () => { tu_funkcja; },)
+    // Navigator.pushNamed(context, '/stronka'); Przejście na inną stronkę
+    // Navigator.pop(context); Powrót do poprzedniej stronki
     return new MaterialApp(
       title: "Przyklad",
       theme: new ThemeData(
