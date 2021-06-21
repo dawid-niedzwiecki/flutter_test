@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:test1/widgets/filter.dart';
 import '../modules/utils.dart';
 import '../widgets/buttons.dart';
 
@@ -54,7 +55,8 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   LoginButton("Google",
                       () => {Navigator.pushNamed(context, '/storage')}),
-                  LoginButton("Facebook", () => {print("dupa")}),
+                  LoginButton("Facebook",
+                      () => {Navigator.pushNamed(context, '/testing')}),
                   SizedBox(
                     height: 30.0,
                   ),
