@@ -42,7 +42,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Column(
                 children: [
-                  LoginButton("Google", () => {}),
+                  LoginButton("Google",
+                      () => {Navigator.pushNamed(context, '/storage')}),
                   LoginButton("Facebook", () => {print("dupa")}),
                   SizedBox(
                     height: 30.0,
