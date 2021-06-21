@@ -18,16 +18,17 @@ class _LoginPageState extends State<LoginPage> {
 
   void _updateAppbar() {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-        systemNavigationBarColor: Colors.transparent,
+        systemNavigationBarColor: Color(0xff343f56),
         systemNavigationBarDividerColor: Colors.transparent));
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff343f56),
       body: Stack(
         children: [
           Image(
-            image: AssetImage("assets/burger.png"),
+            image: AssetImage("assets/images/burger.png"),
             fit: BoxFit.cover,
             height: double.infinity,
             width: double.infinity,

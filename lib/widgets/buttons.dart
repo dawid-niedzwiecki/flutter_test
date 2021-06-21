@@ -20,7 +20,7 @@ class _LoginButtonState extends State<LoginButton> {
         style: new ButtonStyle(
           fixedSize: MaterialStateProperty.resolveWith<Size>(
               (Set<MaterialState> states) {
-            return new Size(250, 50);
+            return new Size(290, 50);
           }),
           backgroundColor: MaterialStateProperty.resolveWith<Color>(
               (Set<MaterialState> states) {
