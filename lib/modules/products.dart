@@ -5,11 +5,14 @@ class Product {
   String name = '';
   double amount = 0;
   String unit = '';
-  DateTime expirationDate = new DateTime(2000, 1, 1);
-  Product(this.name, this.amount, this.unit, this.expirationDate);
+  DateTime _expirationDate = new DateTime(2000, 1, 1, 23, 59);
+  Product(this.name, this.amount, this.unit, DateTime expirationDate) {
+    _expirationDate = new DateTime(
+        expirationDate.year, expirationDate.month, expirationDate.day, 23, 59);
+  }
   Text generateExpirationTimeText() {
-    int hours = expirationDate.difference(DateTime.now()).inHours;
-    int days = expirationDate.difference(DateTime.now()).inDays;
+    int hours = _expirationDate.difference(DateTime.now()).inHours;
+    int days = _expirationDate.difference(DateTime.now()).inDays;
     String message = amount.toString() +
         " " +
         unit +
@@ -21,13 +24,13 @@ class Product {
         " godzin";
     return Utils.generateText(message,
         color: (days >= 2 ? Utils.textColor : Utils.secondaryColor),
-        fontWeight: (days >= 2 ? FontWeight.w400 : FontWeight.w500));
+        fontSize: (days >= 2 ? 15 : 16));
   }
 
   ListTile generateListTile() {
     return new ListTile(
       title: Utils.generateText(name,
-          color: (expirationDate.difference(DateTime.now()).inHours >= 0
+          color: (_expirationDate.difference(DateTime.now()).inHours >= 0
               ? Utils.textColor
               : Utils.secondaryColor),
           fontWeight: FontWeight.w500,
