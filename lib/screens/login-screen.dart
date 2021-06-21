@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
               Column(
                 children: [
                   SizedBox(
-                    height: 30.0,
+                    height: 50.0,
                   ),
                   Center(
                     child: Text(

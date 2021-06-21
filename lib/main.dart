@@ -5,7 +5,7 @@ import 'modules/utils.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+  SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
   runApp(
     MaterialApp(
       initialRoute: '/',
