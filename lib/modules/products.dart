@@ -24,7 +24,7 @@ class Product {
         " godzin";
     return Utils.generateText(message,
         color: (days >= 2 ? Utils.textColor : Utils.secondaryColor),
-        fontSize: (days >= 2 ? 15 : 16));
+        fontSize: (days >= 2 ? 15 : 15.3));
   }
 
   ListTile generateListTile() {
