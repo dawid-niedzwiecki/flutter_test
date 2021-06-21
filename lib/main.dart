@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:test1/screens/storage-screen.dart';
 import 'screens/login-screen.dart';
 import 'modules/utils.dart';
-import 'package:flutter/services.dart';
 
 void main() {
-  SystemChrome.setEnabledSystemUIOverlays([]);
   runApp(
     MaterialApp(
+      title: 'ExpirApp',
       initialRoute: '/',
       routes: {
         '/': (context) => LoginPage(),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test1/modules/products.dart';
+import 'package:test1/modules/utils.dart';
 import 'package:test1/widgets/DrawerRight.dart';
 
 class StoragePage extends StatefulWidget {
@@ -14,24 +15,17 @@ class _StoragePageState extends State<StoragePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Utils.backgroundColor,
       appBar: AppBar(
-        title: Text("Stan magazynu"),
+        title: Utils.generateText("Stan Magazynu",
+            fontSize: 24.0, fontWeight: FontWeight.w500),
+        backgroundColor: Utils.primaryColor,
       ),
-      drawer: DrawerRight(),
-      body: Stack(
-        children: [
-          Image(
-            image: AssetImage("assets/burger.png"),
-            fit: BoxFit.cover,
-            height: double.infinity,
-            width: double.infinity,
-          ),
-          new Container(
-            child: ListView(
-              children: TymczasowaListaProduktow.generateList(),
-            ),
-          ),
-        ],
+      endDrawer: DrawerRight(),
+      body: Container(
+        child: ListView(
+          children: TymczasowaListaProduktow.generateList(),
+        ),
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test1/widgets/DrawerRight.dart';
+import 'package:flutter/services.dart';
 import '../modules/utils.dart';
 import '../widgets/buttons.dart';
 
@@ -11,6 +11,17 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   @override
+  void initState() {
+    _updateAppbar();
+    super.initState();
+  }
+
+  void _updateAppbar() {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        systemNavigationBarColor: Colors.transparent,
+        systemNavigationBarDividerColor: Colors.transparent));
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -31,12 +42,10 @@ class _LoginPageState extends State<LoginPage> {
                     height: 50.0,
                   ),
                   Center(
-                    child: Text(
-                      "ExpirApp",
-                      style:
-                          TextStyle(color: Utils.primaryColor, fontSize: 80.0),
-                      textAlign: TextAlign.center,
-                    ),
+                    child: Utils.generateText("ExpirApp",
+                        fontSize: 70.0,
+                        color: Utils.primaryColor,
+                        fontWeight: FontWeight.w300),
                   ),
                 ],
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test1/modules/utils.dart';
 
 class Product {
   String name = '';
@@ -8,8 +9,8 @@ class Product {
   Product(this.name, this.amount, this.unit, this.expirationDate);
   ListTile generateListTile() {
     return new ListTile(
-      title: new Text(this.name),
-      subtitle: new Text(amount.toString() + " " + unit + " | "),
+      title: Utils.generateText(this.name),
+      subtitle: Utils.generateText(amount.toString() + " " + unit + " | "),
       leading: new Icon(Icons.image),
       trailing: new Icon(Icons.more_vert),
     );

@@ -32,7 +32,7 @@ class _LoginButtonState extends State<LoginButton> {
           }),
         ),
         onPressed: widget.fun,
-        child: new Text("Zaloguj przy pomocy ${widget.value}"),
+        child: Utils.generateText("Zaloguj przy pomocy ${widget.value}"),
       ),
     );
   }

@@ -20,22 +20,22 @@ class _DrawerRightState extends State<DrawerRight> {
         child: ListView(
           children: <Widget>[
             ListTile(
-                title: Text("Stan Magazynu"),
+                title: Utils.generateText("Stan Magazynu", fontSize: 16.0),
                 onTap: () => {
                       //...
                     }),
             ListTile(
-                title: Text("Profil"),
+                title: Utils.generateText("Profil", fontSize: 16.0),
                 onTap: () => {
                       //...
                     }),
             ListTile(
-                title: Text("Lista Zakupów"),
+                title: Utils.generateText("Lista Zakupów", fontSize: 16.0),
                 onTap: () => {
                       //...
                     }),
             ListTile(
-                title: Text("Szablony"),
+                title: Utils.generateText("Szablony", fontSize: 16.0),
                 onTap: () => {
                       //...
                     }),
