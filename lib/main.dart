@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'login.dart';
-import 'utils.dart';
+import 'screens/login.dart';
+import 'modules/utils.dart';
 
 void main() {
   runApp(
