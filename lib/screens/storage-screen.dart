@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test1/modules/products.dart';
@@ -18,6 +16,9 @@ class _StoragePageState extends State<StoragePage> {
     new Product('Jogurt', 3, 'opak.', new DateTime(2021, 6, 25)),
     new Product('Kefir', 3, 'but.', new DateTime(2021, 6, 23)),
     new Product('Ser żółty Gouda', 3, 'opak.', new DateTime(2021, 6, 20)),
+    new Product('Kefir', 1, 'but.', new DateTime(2021, 6, 25)),
+    new Product('Kefir', 1, 'but.', new DateTime(2021, 6, 25)),
+    new Product('Kefir', 1, 'but.', new DateTime(2021, 6, 25)),
     new Product('Kefir', 1, 'but.', new DateTime(2021, 6, 25)),
   ];
 
@@ -107,16 +108,20 @@ class _StoragePageState extends State<StoragePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new Scaffold(
+      floatingActionButton: new FloatingActionButton(
+        onPressed: () => {},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       backgroundColor: Utils.backgroundColor,
-      appBar: AppBar(
+      appBar: new AppBar(
         title: Utils.generateText("Stan Magazynu",
             fontSize: 24.0, fontWeight: FontWeight.w500),
         backgroundColor: Utils.primaryColor,
       ),
-      endDrawer: DrawerRight(),
+      endDrawer: new DrawerRight(),
       body: Container(
-        child: ListView(
+        child: new ListView(
           children: products
               .asMap()
               .entries
@@ -125,6 +130,12 @@ class _StoragePageState extends State<StoragePage> {
               )
               .toList(),
         ),
+        // FloatingActionButton(
+        //   backgroundColor: Utils.primaryColor,
+        //   elevation: 20,
+        //   child: new Icon(Icons.add),
+        //   onPressed: () => {},
+        // ),
       ),
     );
   }
