@@ -1,67 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:test1/modules/utils.dart';
-
 class Product {
   String name = '';
   double amount = 0;
   String unit = '';
-  DateTime _expirationDate = new DateTime(2000, 1, 1, 23, 59);
+  DateTime expirationDate = new DateTime(2000, 1, 1, 23, 59);
   Product(this.name, this.amount, this.unit, DateTime expirationDate) {
-    _expirationDate = new DateTime(
+    this.expirationDate = new DateTime(
         expirationDate.year, expirationDate.month, expirationDate.day, 23, 59);
-  }
-  Text generateExpirationTimeText() {
-    int hours = _expirationDate.difference(DateTime.now()).inHours;
-    int days = _expirationDate.difference(DateTime.now()).inDays;
-    String message = amount.toString() +
-        " " +
-        unit +
-        " | " +
-        (hours >= 0 ? "" : "przeterminowany o ") +
-        (days >= 0 ? days : -days).toString() +
-        " dni " +
-        (hours >= 0 ? hours % 24 : (25 - hours) % 24).toString() +
-        " godzin";
-    return Utils.generateText(message,
-        color: (days >= 2 ? Utils.textColor : Utils.secondaryColor),
-        fontSize: (days >= 2 ? 15 : 15.7),
-        fontWeight: (days >= 2 ? FontWeight.w300 : FontWeight.w500));
-  }
-
-  ListTile generateListTile() {
-    return new ListTile(
-      title: (_expirationDate.difference(DateTime.now()).inHours >= 0
-          ? Utils.generateText(name,
-              color: Utils.textColor, fontWeight: FontWeight.w500, fontSize: 20)
-          : Utils.generateText(name,
-              color: Utils.secondaryColor,
-              fontWeight: FontWeight.w500,
-              fontSize: 22)),
-      subtitle: generateExpirationTimeText(),
-      leading: new Icon(Icons.image),
-      trailing: new IconButton(
-        splashRadius: 27,
-        onPressed: () => {},
-        icon: new Icon(Icons.more_vert),
-        iconSize: 32,
-      ),
-      onTap: () => {},
-    );
-  }
-}
-
-class TymczasowaListaProduktow {
-  static List<Product> products = [
-    new Product('Jogurt', 3, 'opak.', new DateTime(2021, 6, 25)),
-    new Product('Kefir', 3, 'but.', new DateTime(2021, 6, 23)),
-    new Product('Ser żółty Gouda', 3, 'opak.', new DateTime(2021, 6, 20)),
-    new Product('Kefir', 1, 'but.', new DateTime(2021, 6, 25)),
-  ];
-  static List<ListTile> generateList() {
-    List<ListTile> list = [];
-    products.forEach((element) {
-      list.add(element.generateListTile());
-    });
-    return list;
   }
 }
