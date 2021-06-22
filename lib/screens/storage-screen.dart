@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test1/modules/products.dart';
@@ -53,11 +55,51 @@ class _StoragePageState extends State<StoragePage> {
                   fontSize: 22)),
       subtitle: generateDetailsText(index),
       leading: new Icon(Icons.image),
-      trailing: new IconButton(
-        splashRadius: 27,
-        onPressed: () => {},
-        icon: new Icon(Icons.more_vert),
-        iconSize: 32,
+      trailing: PopupMenuButton(
+        color: Utils.menuBackgroundColor,
+        elevation: 10,
+        itemBuilder: (context) => [
+          PopupMenuItem(
+            child: new TextButton(
+              child: Center(
+                child: Center(
+                  child: Utils.generateText("Otwórz"),
+                ),
+              ),
+              onPressed: () => {},
+            ),
+            value: 1,
+          ),
+          PopupMenuItem(
+            child: new TextButton(
+              child: Center(
+                child: Utils.generateText("Edytuj"),
+              ),
+              onPressed: () => {},
+            ),
+            value: 2,
+          ),
+          PopupMenuItem(
+            child: new TextButton(
+              child: Center(
+                child: Center(
+                  child: Utils.generateText("Duplikuj"),
+                ),
+              ),
+              onPressed: () => {},
+            ),
+            value: 3,
+          ),
+          PopupMenuItem(
+            child: new TextButton(
+              child: Center(
+                child: Utils.generateText("Usuń", color: Utils.secondaryColor),
+              ),
+              onPressed: () => {},
+            ),
+            value: 4,
+          ),
+        ],
       ),
       onTap: () => {},
     );
