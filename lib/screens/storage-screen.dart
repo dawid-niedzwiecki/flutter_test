@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:test1/modules/products.dart';
 import 'package:test1/modules/utils.dart';
 import 'package:test1/widgets/DrawerRight.dart';
+import 'package:test1/widgets/StorageFab.dart';
 
 class StoragePage extends StatefulWidget {
   const StoragePage({Key? key}) : super(key: key);
@@ -109,8 +110,37 @@ class _StoragePageState extends State<StoragePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      floatingActionButton: new FloatingActionButton(
-        onPressed: () => {},
+      floatingActionButton: ExpandableFab(
+        distance: 112.0,
+        children: [
+          ActionButton(
+            onPressed: () => {},
+            text: Utils.generateText(
+              "Kategoria",
+              color: Utils.textColor,
+              fontWeight: FontWeight.w500,
+              fontSize: 17,
+            ),
+          ),
+          ActionButton(
+            onPressed: () => {},
+            text: Utils.generateText(
+              "Produkt z szablonu",
+              color: Utils.textColor,
+              fontWeight: FontWeight.w500,
+              fontSize: 17,
+            ),
+          ),
+          ActionButton(
+            onPressed: () => {},
+            text: Utils.generateText(
+              "Produkt",
+              color: Utils.textColor,
+              fontWeight: FontWeight.w500,
+              fontSize: 17,
+            ),
+          ),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       backgroundColor: Utils.backgroundColor,
@@ -130,12 +160,6 @@ class _StoragePageState extends State<StoragePage> {
               )
               .toList(),
         ),
-        // FloatingActionButton(
-        //   backgroundColor: Utils.primaryColor,
-        //   elevation: 20,
-        //   child: new Icon(Icons.add),
-        //   onPressed: () => {},
-        // ),
       ),
     );
   }
