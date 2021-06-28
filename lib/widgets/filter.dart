@@ -11,7 +11,7 @@ class Filter extends StatefulWidget {
 
 class _FilterState extends State<Filter> {
   bool _isSwitched = false;
-  bool _isOpen = true;
+  bool _isOpen = false;
   List<bool> _isSelected = [true, false];
 
   @override
@@ -29,9 +29,16 @@ class _FilterState extends State<Filter> {
                       backgroundColor: Utils.backgroundColor,
                       headerBuilder: (context, isOpen) {
                         return AppBar(
+                          actions: [
+                            Container(
+                              width: 0,
+                              height: 0,
+                            ),
+                          ],
                           backgroundColor: Utils.backgroundColor,
                           elevation: 0.0,
                           automaticallyImplyLeading: false,
+                          primary: false,
                           title: CupertinoSearchTextField(
                             backgroundColor: Utils.menuBackgroundColor,
                             itemColor: Utils.primaryColor,
@@ -49,7 +56,7 @@ class _FilterState extends State<Filter> {
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: EdgeInsets.fromLTRB(8.0, 0, 8.0, 8.0),
                               child: Utils.generateText(
                                 "Sortuj według:",
                                 fontWeight: FontWeight.w700,
@@ -57,6 +64,7 @@ class _FilterState extends State<Filter> {
                               ),
                             ),
                           ),
+                          Container(height: 10.0),
                           ToggleButtons(
                             borderRadius: BorderRadius.circular(15),
                             onPressed: (int index) {
@@ -89,6 +97,7 @@ class _FilterState extends State<Filter> {
                               ),
                             ],
                           ),
+                          Container(height: 10),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -105,6 +114,7 @@ class _FilterState extends State<Filter> {
                               Utils.generateText("Malejąco"),
                             ],
                           ),
+                          Container(height: 5),
                         ],
                       ),
                       isExpanded: _isOpen,
