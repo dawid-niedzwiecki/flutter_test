@@ -23,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget build(BuildContext context) {
+    TextEditingController controller = new TextEditingController();
     return Scaffold(
       backgroundColor: Color(0xff343f56),
       body: Stack(

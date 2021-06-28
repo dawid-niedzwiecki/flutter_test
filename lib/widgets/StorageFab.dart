@@ -133,13 +133,14 @@ class _ExpandableFabState extends State<ExpandableFab>
   List<Widget> _buildExpandingActionButtons() {
     final children = <Widget>[];
     final count = widget.children.length;
-    final step = 90.0 / (count - 1);
-    double angleInDegrees = 0.0;
-    for (int i = 0; i < count; i++, angleInDegrees += step) {
+    final step = 120;
+    double distance = widget.distance;
+    double angleInDegrees = 90.0;
+    for (int i = 0; i < count; i++, distance += step) {
       children.add(
         _ExpandingActionButton(
           directionInDegrees: angleInDegrees,
-          maxDistance: widget.distance,
+          maxDistance: distance,
           progress: _expandAnimation,
           child: widget.children[i],
         ),
@@ -201,16 +202,17 @@ class _ExpandingActionButton extends StatelessWidget {
       animation: progress,
       builder: (BuildContext context, Widget? child) {
         final offset = Offset.fromDirection(
-          directionInDegrees * (pi / 90.0),
+          directionInDegrees * (pi / 180.0),
           progress.value * maxDistance,
         );
         return Positioned(
           right: MediaQuery.of(context).size.width / 2 - 100 + offset.dx * 1.2,
           bottom: 4.0 + offset.dy * 0.5,
-          child: Transform.rotate(
-            angle: (1.0 - progress.value) * pi / 2,
-            child: child!,
-          ),
+          child: child!,
+          // Transform.rotate(
+          //   angle: (1.0 - progress.value) * pi / 2,
+          //   child: child!,
+          // ),
         );
       },
       child: FadeTransition(

@@ -116,15 +116,6 @@ class _StoragePageState extends State<StoragePage> {
           ActionButton(
             onPressed: () => {},
             text: Utils.generateText(
-              "Kategoria",
-              color: Utils.textColor,
-              fontWeight: FontWeight.w500,
-              fontSize: 17,
-            ),
-          ),
-          ActionButton(
-            onPressed: () => {},
-            text: Utils.generateText(
               "Produkt z szablonu",
               color: Utils.textColor,
               fontWeight: FontWeight.w500,
