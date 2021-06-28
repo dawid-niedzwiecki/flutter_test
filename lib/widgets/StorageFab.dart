@@ -152,19 +152,24 @@ class _ExpandableFabState extends State<ExpandableFab>
 
 @immutable
 class ActionButton extends StatelessWidget {
-  const ActionButton({Key? key, this.onPressed, required this.text})
+  const ActionButton(
+      {Key? key, this.onPressed, required this.text, required this.icon})
       : super(key: key);
 
   final VoidCallback? onPressed;
   final Text text;
+  final Icon icon;
 
   @override
   Widget build(BuildContext context) {
-    return new TextButton(
+    return TextButton.icon(
+      label: text,
+      icon: icon,
+      onPressed: onPressed,
       style: new ButtonStyle(
         fixedSize: MaterialStateProperty.resolveWith<Size>(
             (Set<MaterialState> states) {
-          return new Size(200, 50);
+          return new Size(240, 50);
         }),
         backgroundColor: MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
@@ -175,8 +180,6 @@ class ActionButton extends StatelessWidget {
           return Utils.textColor;
         }),
       ),
-      onPressed: onPressed,
-      child: text,
     );
   }
 }

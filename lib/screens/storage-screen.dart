@@ -122,6 +122,10 @@ class _StoragePageState extends State<StoragePage> {
               fontWeight: FontWeight.w500,
               fontSize: 17,
             ),
+            icon: Icon(
+              Icons.menu_book_outlined,
+              color: Utils.primaryColor,
+            ),
           ),
           ActionButton(
             onPressed: () => {},
@@ -130,6 +134,10 @@ class _StoragePageState extends State<StoragePage> {
               color: Utils.textColor,
               fontWeight: FontWeight.w500,
               fontSize: 17,
+            ),
+            icon: Icon(
+              Icons.fastfood_outlined,
+              color: Utils.primaryColor,
             ),
           ),
         ],
