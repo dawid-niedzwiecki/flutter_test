@@ -4,6 +4,7 @@ import 'package:test1/modules/products.dart';
 import 'package:test1/modules/utils.dart';
 import 'package:test1/widgets/DrawerRight.dart';
 import 'package:test1/widgets/StorageFab.dart';
+import 'package:test1/widgets/filter.dart';
 
 class StoragePage extends StatefulWidget {
   const StoragePage({Key? key}) : super(key: key);
@@ -141,15 +142,20 @@ class _StoragePageState extends State<StoragePage> {
         backgroundColor: Utils.primaryColor,
       ),
       endDrawer: new DrawerRight(),
-      body: Container(
-        child: new ListView(
-          children: products
-              .asMap()
-              .entries
-              .map(
-                (MapEntry map) => generateListTile(map.key),
-              )
-              .toList(),
+      body: new SingleChildScrollView(
+        physics: ScrollPhysics(),
+        child: new Column(
+          children: [
+            new Filter(),
+            ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: products.length,
+              itemBuilder: (BuildContext context, int index) {
+                return generateListTile(index);
+              },
+            ),
+          ],
         ),
       ),
     );
