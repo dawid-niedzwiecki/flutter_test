@@ -10,13 +10,14 @@ class Filter extends StatefulWidget {
 }
 
 class _FilterState extends State<Filter> {
+  bool _isSwitched = false;
   bool _isOpen = true;
   List<bool> _isSelected = [true, false];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return Container(
+      child: Column(
         children: [
           Row(
             children: <Widget>[
@@ -45,34 +46,65 @@ class _FilterState extends State<Filter> {
                       },
                       body: Column(
                         children: [
-                          Row(
-                            children: [
-                              Utils.generateText("Sortuj według:",
-                                  fontWeight: FontWeight.w700),
-                            ],
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Utils.generateText(
+                                "Sortuj według:",
+                                fontWeight: FontWeight.w700,
+                                fontSize: 20,
+                              ),
+                            ),
                           ),
-                          Row(
+                          ToggleButtons(
+                            borderRadius: BorderRadius.circular(15),
+                            onPressed: (int index) {
+                              setState(() {
+                                _isSelected.setAll(0, [false, false]);
+                                _isSelected[index] = true;
+                                print(_isSelected);
+                              });
+                            },
+                            isSelected: _isSelected,
+                            selectedColor: Colors.amberAccent,
                             children: [
-                              ToggleButtons(
-                                isSelected: _isSelected,
-                                children: [
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 16.0),
-                                    child: Utils.generateText("Data"),
-                                  ),
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 16.0),
-                                    child: Utils.generateText("Data"),
-                                  ),
-                                ],
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 16.0,
+                                ),
+                                child: Utils.generateText(
+                                  "Data",
+                                  fontSize: 18,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 16.0,
+                                ),
+                                child: Utils.generateText(
+                                  "Nazwa",
+                                  fontSize: 18,
+                                ),
                               ),
                             ],
                           ),
                           Row(
-                            children: [],
-                          )
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Utils.generateText("Rosnąco"),
+                              Switch(
+                                onChanged: (value) => {
+                                  setState(() {
+                                    _isSwitched = value;
+                                    print(value);
+                                  }),
+                                },
+                                value: _isSwitched,
+                              ),
+                              Utils.generateText("Malejąco"),
+                            ],
+                          ),
                         ],
                       ),
                       isExpanded: _isOpen,
