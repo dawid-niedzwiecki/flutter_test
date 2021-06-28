@@ -11,39 +11,7 @@ class Filter extends StatefulWidget {
 
 class _FilterState extends State<Filter> {
   bool _isOpen = true;
-  int _chipSelectedIndex = 1;
-  List<String> _chipOptions = ["Data", "Nazwa"];
-
-  Widget _buildChips() {
-    List<Widget> chips = [];
-    for (int i = 0; i < _chipOptions.length; i++) {
-      chips.add(
-        ChoiceChip(
-          selected: _chipSelectedIndex == i,
-          label: Text(_chipOptions[i], style: TextStyle(color: Colors.white)),
-          elevation: 10,
-          selectedColor: Utils.primaryColor,
-          backgroundColor: Utils.menuBackgroundColor,
-          pressElevation: 5,
-          onSelected: (bool selected) => {
-            setState(() {
-              if (selected) {
-                _chipSelectedIndex = i;
-              }
-            }),
-          },
-        ),
-      );
-    }
-    return Container(
-      height: 50.0,
-      width: MediaQuery.of(context).size.width,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: chips,
-      ),
-    );
-  }
+  List<bool> _isSelected = [true, false];
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +53,21 @@ class _FilterState extends State<Filter> {
                           ),
                           Row(
                             children: [
-                              _buildChips(),
+                              ToggleButtons(
+                                isSelected: _isSelected,
+                                children: [
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 16.0),
+                                    child: Utils.generateText("Data"),
+                                  ),
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 16.0),
+                                    child: Utils.generateText("Data"),
+                                  ),
+                                ],
+                              ),
                             ],
                           ),
                           Row(
