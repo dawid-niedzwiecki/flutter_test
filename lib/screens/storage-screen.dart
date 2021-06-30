@@ -1,5 +1,7 @@
+import 'package:appwrite/appwrite.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:test1/modules/connection.dart';
 import 'package:test1/modules/products.dart';
 import 'package:test1/modules/utils.dart';
 import 'package:test1/widgets/DrawerRight.dart';
@@ -14,14 +16,45 @@ class StoragePage extends StatefulWidget {
 }
 
 class _StoragePageState extends State<StoragePage> {
+  @override
+  void initState() {
+    products = productss();
+    super.initState();
+  }
+
+  List<Product> productss() {
+    Client client = Client();
+    List<Product> produkty = [];
+    client.setEndpoint(Connection.endpoint).setProject(Connection.project);
+    Database database = Database(client);
+    final Future result =
+        database.createDocument(collectionId: Connection.produkty, read: [
+      "*"
+    ], write: [
+      "*"
+    ], data: {
+      "permissions": {
+        "read": ["*"],
+        "write": ["*"]
+      },
+      "image": "",
+      "name": "Jogurt",
+      "amount": 2,
+      "unit": "l",
+      "expiration": "2021.07.16",
+      "opened": 48,
+      "user": "doggo"
+    });
+    result.then((response) {
+      print(response);
+    }).catchError((error) {
+      print(error.message);
+    });
+    return produkty;
+  }
+
   List<Product> products = [
     new Product('Jogurt', 3, 'opak.', new DateTime(2021, 6, 25)),
-    new Product('Kefir', 3, 'but.', new DateTime(2021, 6, 23)),
-    new Product('Ser żółty Gouda', 3, 'opak.', new DateTime(2021, 6, 20)),
-    new Product('Kefir', 1, 'but.', new DateTime(2021, 6, 25)),
-    new Product('Kefir', 1, 'but.', new DateTime(2021, 6, 25)),
-    new Product('Kefir', 1, 'but.', new DateTime(2021, 6, 25)),
-    new Product('Kefir', 1, 'but.', new DateTime(2021, 6, 25)),
   ];
 
   Text generateDetailsText(int index) {
