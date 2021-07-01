@@ -13,9 +13,10 @@ void main() {
   client.setEndpoint(Connection.endpoint).setProject(Connection.project);
   Future result = account.createOAuth2Session(
       provider: 'google',
-      success: 'https://www.google.pl/',
-      failure:
-          'https://pl.wikipedia.org/wiki/Wikipedia:Strona_g%C5%82%C3%B3wna');
+      success:
+          'https://expirapp.niedzwiecki.tech/v1/account/sessions/oauth2/callback/google/60db806baa4ee',
+      failure: 'https://expirapp.niedzwiecki.tech/v1/account/sessions/oauth2/callback/google/60db806baa4ee',
+      scopes: ['https://www.googleapis.com/auth/userinfo.email']);
   result
       .then((response) => {print(response)})
       .catchError((error) => {print(error.response)});
