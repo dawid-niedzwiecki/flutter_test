@@ -24,9 +24,8 @@ class _LoginPageState extends State<LoginPage> {
     client.setEndpoint(Connection.endpoint).setProject(Connection.project);
     Future result = account.createOAuth2Session(
         provider: 'google',
-        success:
-            'https://expirapp.niedzwiecki.tech/v1/account/sessions/oauth2/callback/google/60db806baa4ee',
-        failure: 'https://expirapp.niedzwiecki.tech/v1/account/sessions/oauth2/callback/google/60db806baa4ee',
+        success: 'http://localhost:50560/#/storage',
+        failure: 'http://localhost:50560/#/',
         scopes: ['https://www.googleapis.com/auth/userinfo.email']);
     result.then((response) {
       print(response);
